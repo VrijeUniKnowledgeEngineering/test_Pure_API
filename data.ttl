@@ -1,0 +1,14 @@
+@prefix ns1: <http://xmlns.com/foaf/0.1/> .
+@prefix ns2: <https://krr.cs.vu.nl/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:van_Harmelen a ns1:Person ;
+    ns1:firstName <https://krr.cs.vu.nl/F.A.H.> ;
+    ns1:lastName ns2:van_Harmelen ;
+    ns1:title <https://krr.cs.vu.nl/prof._dr.> ;
+    ns2:hasPureID ns2:b36edb65-746c-46be-9ecb-e532eb23c24e ;
+    ns2:hasScopusID <https://krr.cs.vu.nl/7004322609> .
+
