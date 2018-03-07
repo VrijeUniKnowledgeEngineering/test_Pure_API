@@ -41,31 +41,18 @@ publicationsItems = response_research_outputs['items']
 
 # print publicationsItems
 print(len(publicationsItems))
-# pprint.pprint (publicationsItems[3])
+pprint.pprint(publicationsItems)
 
 #no.1
-print(publicationsItems[0]['electronicVersions'][1]['doi'])
-# title
 print(publicationsItems[0]['title'])
+print(publicationsItems[0]['electronicVersions'][1]['doi'])
 
-# no.2
-print(publicationsItems[1]['title'])
-# pprint.pprint( publicationsItems[1])
+print(len(publicationsItems))
+for i in range(len(publicationsItems)):
 
-
-# # no.3
-print(publicationsItems[2]['title'])
-#
-#
-#no.4
-print(publicationsItems[3]['title'])
-print(publicationsItems[4]['title'])
-print(publicationsItems[5]['title'])
-print(publicationsItems[6]['title'])
-print(publicationsItems[7]['title'])
-print(publicationsItems[8]['title'])
-print(publicationsItems[9]['title'])
-
+    print (i)
+    print (publicationsItems[i]['title'])
+    print (publicationsItems[i]['electronicVersions'][0]['file']['fileURL'])
 
 # [{u'created': u'2017-02-05T12:55:32.326+0000', u'creator': u'root', u'accessType': [{u'uri': u'/dk/atira/pure/core/openaccesspermission/open', u'value': u'Open'}], u'visibleOnPortalDate': u'2017-02-05T12:55:32.326+0000', u'file': {u'mimeType': u'application/pdf', u'digestAlgorithm': u'SHA1', u'fileName': u'swj588 0.pdf', u'fileURL': u'https://research.vu.nl/ws/files/666163/swj588%200.pdf', u'digest': u'9C9F042A242D74C01FC69DD44DFA57EA27070FC0', u'size': 307701}, u'versionType': [{u'uri': u'/dk/atira/pure/publication/electronicversion/versiontype/publishersversion', u'value': u'Final published version'}], u'id': 666162},
 #  {u'accessType': [{u'uri': u'/dk/atira/pure/core/openaccesspermission/unknown', u'value': u'Unknown'}], u'doi': u'http://dx.doi.org/10.3233/SW-140158', u'visibleOnPortalDate': u'2017-02-05T12:55:32.326+0000', u'id': 666164, u'versionType': [{u'uri': u'/dk/atira/pure/publication/electronicversion/versiontype/publishersversion', u'value': u'Final published version'}]}]
@@ -130,55 +117,55 @@ print(publicationsItems[9]['title'])
 # rdfLastName = URIRef("http://example.com/KE4KE/" + scopusID)
 
 
-from rdflib import URIRef, BNode, Literal
-
-krr_url = 'https://krr.cs.vu.nl/'
-
-title = URIRef(krr_url + title)
-firstName = URIRef(krr_url + firstName)
-lastName = URIRef(krr_url + lastName)
-scopusID = URIRef(krr_url + scopusID)
-pureID = URIRef(krr_url + pureID)
-
-hasScopusID = URIRef("https://krr.cs.vu.nl/hasScopusID")
-hasPureID = URIRef("https://krr.cs.vu.nl/hasPureID")
-
-from rdflib.namespace import RDF, FOAF
-
-
-# RDF.type = rdflib.term.URIRef(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
-
-# FOAF.knows = rdflib.term.URIRef(u'http://xmlns.com/foaf/0.1/knows')
-
-
-from rdflib import Graph
-g = Graph()
-
-g.add( (lastName, RDF.type, FOAF.Person) )
-g.add( (lastName, FOAF.title, title) )
-g.add( (lastName, FOAF.firstName, firstName) )
-g.add( (lastName, FOAF.lastName, lastName) )
-g.add( (lastName, hasScopusID, scopusID) )
-g.add( (lastName, hasPureID, pureID) )
-
-
-# print (g.serialize(format='turtle'))
-
-
-file = open("data.ttl", mode="w")
-
-def serialize(filename):
-    g.serialize(destination=filename, format='turtle')
-    print("File is saved")
-
-def save(filename):
-    with open(filename, 'w') as f:
-        g.serialize(f, format='turtle')
-
-
-def load(filename):
-    with open(filename, 'r') as f:
-        g.load(f, format='turtle')
-
-
-serialize('data.ttl')
+# from rdflib import URIRef, BNode, Literal
+#
+# krr_url = 'https://krr.cs.vu.nl/'
+#
+# title = URIRef(krr_url + title)
+# firstName = URIRef(krr_url + firstName)
+# lastName = URIRef(krr_url + lastName)
+# scopusID = URIRef(krr_url + scopusID)
+# pureID = URIRef(krr_url + pureID)
+#
+# hasScopusID = URIRef("https://krr.cs.vu.nl/hasScopusID")
+# hasPureID = URIRef("https://krr.cs.vu.nl/hasPureID")
+#
+# from rdflib.namespace import RDF, FOAF
+#
+#
+# # RDF.type = rdflib.term.URIRef(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
+#
+# # FOAF.knows = rdflib.term.URIRef(u'http://xmlns.com/foaf/0.1/knows')
+#
+#
+# from rdflib import Graph
+# g = Graph()
+#
+# g.add( (lastName, RDF.type, FOAF.Person) )
+# g.add( (lastName, FOAF.title, title) )
+# g.add( (lastName, FOAF.firstName, firstName) )
+# g.add( (lastName, FOAF.lastName, lastName) )
+# g.add( (lastName, hasScopusID, scopusID) )
+# g.add( (lastName, hasPureID, pureID) )
+#
+#
+# # print (g.serialize(format='turtle'))
+#
+#
+# file = open("data.ttl", mode="w")
+#
+# def serialize(filename):
+#     g.serialize(destination=filename, format='turtle')
+#     print("File is saved")
+#
+# def save(filename):
+#     with open(filename, 'w') as f:
+#         g.serialize(f, format='turtle')
+#
+#
+# def load(filename):
+#     with open(filename, 'r') as f:
+#         g.load(f, format='turtle')
+#
+#
+# serialize('data.ttl')
