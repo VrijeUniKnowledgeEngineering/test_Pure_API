@@ -24,8 +24,8 @@ firstName = firstName.replace(" ","_")
 title = title.replace(" ","_")
 pureID = str(pureID)
 
-print scopusID
-print pureID
+print(scopusID)
+print(pureID)
 resp_research_outputs = requests.get('https://research.vu.nl/ws/api/59/persons/'+ pureID +'/research-outputs?apiKey=1aecc9b3-0b58-4e00-b757-c1a8026cbbfd',  headers=headers)
 
 if resp_person.status_code != 200:
@@ -40,31 +40,31 @@ totalPublications = response_research_outputs['count']
 publicationsItems = response_research_outputs['items']
 
 # print publicationsItems
-print len(publicationsItems)
+print(len(publicationsItems))
 # pprint.pprint (publicationsItems[3])
 
 #no.1
-print publicationsItems[0]['electronicVersions'][1]['doi']
+print(publicationsItems[0]['electronicVersions'][1]['doi'])
 # title
-print publicationsItems[0]['title']
+print(publicationsItems[0]['title'])
 
 # no.2
-print publicationsItems[1]['title']
+print(publicationsItems[1]['title'])
 # pprint.pprint( publicationsItems[1])
 
 
 # # no.3
-print publicationsItems[2]['title']
+print(publicationsItems[2]['title'])
 #
 #
 #no.4
-print publicationsItems[3]['title']
-print publicationsItems[4]['title']
-print publicationsItems[5]['title']
-print publicationsItems[6]['title']
-print publicationsItems[7]['title']
-print publicationsItems[8]['title']
-print publicationsItems[9]['title']
+print(publicationsItems[3]['title'])
+print(publicationsItems[4]['title'])
+print(publicationsItems[5]['title'])
+print(publicationsItems[6]['title'])
+print(publicationsItems[7]['title'])
+print(publicationsItems[8]['title'])
+print(publicationsItems[9]['title'])
 
 
 # [{u'created': u'2017-02-05T12:55:32.326+0000', u'creator': u'root', u'accessType': [{u'uri': u'/dk/atira/pure/core/openaccesspermission/open', u'value': u'Open'}], u'visibleOnPortalDate': u'2017-02-05T12:55:32.326+0000', u'file': {u'mimeType': u'application/pdf', u'digestAlgorithm': u'SHA1', u'fileName': u'swj588 0.pdf', u'fileURL': u'https://research.vu.nl/ws/files/666163/swj588%200.pdf', u'digest': u'9C9F042A242D74C01FC69DD44DFA57EA27070FC0', u'size': 307701}, u'versionType': [{u'uri': u'/dk/atira/pure/publication/electronicversion/versiontype/publishersversion', u'value': u'Final published version'}], u'id': 666162},
